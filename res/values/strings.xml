@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello World, SpaceApp!</string>
     <string name="app_name">SpaceApp</string>
+    
+    <string name="satellites_near_by">Satellites near by</string>
+    
 </resources>

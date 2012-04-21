@@ -9,21 +9,21 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.spaceapp.data.Satellite;
+import com.spaceapp.data.SpaceObject;
 
-public class NearestSatelliteList extends ListView{
+public class NearestObjectList extends ListView{
 
-	private List<Satellite> satellites;
+	private List<SpaceObject> satellites;
 	private SatellateAdapter adapter;
 	
-	public NearestSatelliteList(Context context, AttributeSet attrs) {
+	public NearestObjectList(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
 		adapter = new SatellateAdapter();
 		setAdapter(adapter);
 	}
 	
-	public void setSatellites(List<Satellite> satellites){
+	public void setSatellites(List<SpaceObject> satellites){
 		this.satellites = satellites;
 		adapter.notifyDataSetChanged();
 	}
@@ -37,7 +37,7 @@ public class NearestSatelliteList extends ListView{
 			return 0;
 		}
 
-		public Satellite getItem(int position) {
+		public SpaceObject getItem(int position) {
 			if(satellites != null){
 				if(position >= 0 && position < satellites.size()){
 					return satellites.get(position);
@@ -51,14 +51,14 @@ public class NearestSatelliteList extends ListView{
 		}
 
 		public View getView(int position, View convertView, ViewGroup parent) {
-			Satellite satellite = getItem(position);
-			NearestSatelliteItem v = null;
+			SpaceObject satellite = getItem(position);
+			NearestObjectItem v = null;
 			if(satellite != null){
 				
-				if(v instanceof NearestSatelliteItem){
-					v = (NearestSatelliteItem)convertView;
+				if(v instanceof NearestObjectItem){
+					v = (NearestObjectItem)convertView;
 				}else{
-					v = new NearestSatelliteItem(getContext());
+					v = new NearestObjectItem(getContext());
 				}
 				
 				v.setSatellite(satellite);

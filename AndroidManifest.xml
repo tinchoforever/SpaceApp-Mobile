@@ -3,8 +3,9 @@
       package="com.spaceapp"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".SpaceApp"
+    <application android:icon="@drawable/icon" android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light">
+        <activity android:name=".NearestObjectActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -12,7 +13,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".SpaceObjectChecking"/>
+        
+        <uses-library android:name="com.google.android.maps" />
+        
+        
     </application>
-    <uses-sdk android:minSdkVersion="7" />
+    <uses-sdk android:minSdkVersion="4" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest> 
